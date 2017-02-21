@@ -66,11 +66,10 @@ public class OI {
         intakeOff.whenPressed(new Nosucc());
         intakeReverse.whenPressed(new Unsucc());
 
-        gear.whenPressed(new PlaceGear());
+        gear.whileHeld(new PlaceGear());
         gear.whenReleased(new ResetGear());
 
         jostleForward.whileHeld(new JostleForward());
-        jostleBackward.whileHeld(new JostleBackward());
 
         climbUp.whileHeld(new ClimbUp());
         climbDown.whileHeld(new ClimbDown());

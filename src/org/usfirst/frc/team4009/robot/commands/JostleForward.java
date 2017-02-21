@@ -40,7 +40,6 @@ public class JostleForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.shooter.set(0);
         Robot.jostlator.set(0);
     }
 

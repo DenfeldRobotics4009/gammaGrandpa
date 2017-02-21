@@ -1,0 +1,7 @@
+.classpath
+.project
+*.swp
+sysProps.xml
+bin/
+build/
+dist/

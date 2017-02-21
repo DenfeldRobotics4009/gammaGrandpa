@@ -9,7 +9,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4009.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4009.robot.commands.DriveVision;
 import org.usfirst.frc.team4009.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4009.robot.subsystems.Drive;
+import org.usfirst.frc.team4009.robot.subsystems.Shooter;
+import org.usfirst.frc.team4009.robot.subsystems.Jostlator;
+import org.usfirst.frc.team4009.robot.subsystems.Intake;
+import org.usfirst.frc.team4009.robot.subsystems.Climber;
+import org.usfirst.frc.team4009.robot.subsystems.Gear;
+import org.usfirst.frc.team4009.robot.subsystems.Vision;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +29,13 @@ import org.usfirst.frc.team4009.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+    public static final Drive drive = new Drive();
+    public static final Shooter shooter = new Shooter();
+    public static final Jostlator jostlator = new Jostlator();
+    public static final Intake intake = new Intake();
+    public static final Climber climber = new Climber();
+    public static final Gear gear = new Gear();
+    public static final Vision vision = new Vision();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -33,7 +48,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addDefault("Vision Auto", new DriveVision());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}

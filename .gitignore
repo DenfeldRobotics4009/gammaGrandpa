@@ -1,5 +1,6 @@
 .classpath
 .project
+*.swp
 sysProps.xml
 bin/
 build/

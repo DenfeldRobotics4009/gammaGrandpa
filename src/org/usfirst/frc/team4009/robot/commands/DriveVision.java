@@ -7,27 +7,35 @@ import org.usfirst.frc.team4009.robot.Robot;
 /**
  *
  */
-public class DriveForward extends Command {
-	public DriveForward() {
+public class DriveVision extends Command {
+	public DriveVision() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.drive);
+		requires(Robot.vision);
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+        setTimeout(15);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-        Robot.drive.drive(0,1,0);
+        double leftMotor = Robot.vision.getLeftMotor();
+        double rightMotor = Robot.vision.getRightMotor();
+
+        double x = 0;
+        double y = leftMotor + rightMotor;
+        double rotation = leftMotor - rightMotor;
+        Robot.drive.drive(x,y,rotation);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return isTimedOut();
 	}
 
 	// Called once after isFinished returns true

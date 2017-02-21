@@ -11,35 +11,24 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Climber extends Subsystem {
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    TalonSRX climber1;
+    TalonSRX climber2;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
+
     public Climber(){
-    climber1 = new TalonSRX(RobotMap.climberPort1);
-    climber2 = new TalonSRX(RobotMap.climberPort2);
-    
+        climber1 = new TalonSRX(RobotMap.climberPort1);
+        climber2 = new TalonSRX(RobotMap.climberPort2);
+
     }
-    
-    public void climbUp(){
-    climber1.set(1);
-    climber2.set(-1);
-    
+
+    public void set(double speed){
+        climber1.set(speed);
+        climber2.set(-speed);
     }
-    
-    public void climbDown(){
-    climber1.set(-1);
-    climber2.set(1);
-    }
-    
-    
-    
-    SpeedController climber1;
-    SpeedController climber2;
-    
+
 }
 

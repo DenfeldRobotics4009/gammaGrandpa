@@ -7,8 +7,8 @@ import org.usfirst.frc.team4009.robot.Robot;
 /**
  *
  */
-public class DriveForward extends Command {
-	public DriveForward() {
+public class DriveStick extends Command {
+	public DriveStick() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.drive);
 	}
@@ -21,7 +21,7 @@ public class DriveForward extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-        Robot.drive.drive(0,1,0);
+        Robot.drive.drive(Robot.oi.joystick1);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

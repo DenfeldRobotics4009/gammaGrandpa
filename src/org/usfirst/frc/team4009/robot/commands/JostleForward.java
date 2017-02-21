@@ -27,7 +27,11 @@ public class JostleForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(Robot.jostlator.readCurrent() > RobotMap.jostleCurrentLimit && currentSensorCooldown.hasPeriodPassed(RobotMap.jostleCurrentCooldown)) {
+        boolean reverseDirection = Robot.jostlator.readCurrent() > RobotMap.jostleCurrentLimit;
+        if(reverseDirection){
+            reverseDireciton &= currentSensorCooldown.hasPeriodPassed(RobotMap.jostleCurrentCooldown);
+        }
+        if(reverseDirection) {
             jostleDirection = -jostleDirection;
         }
         Robot.jostlator.set(jostleDirection);

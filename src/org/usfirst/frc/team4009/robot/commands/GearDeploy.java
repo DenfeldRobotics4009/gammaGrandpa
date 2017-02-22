@@ -1,15 +1,15 @@
 package org.usfirst.frc.team4009.robot.commands;
 
-import org.usfirst.frc.team4009.robot.subsystems.Climber;
+import org.usfirst.frc.team4009.robot.subsystems.Gear;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ClimbUp extends Command {
+public class GearDeploy extends Command {
 
-    public ClimbUp() {
+    public GearDeploy() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -20,7 +20,8 @@ public class ClimbUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Climber.climbMotorSet(1);
+    	Gear.gearMotorSet(1);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,7 +31,7 @@ public class ClimbUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Climber.climbMotorSet(0);
+    	Gear.gearMotorSet(0);
     }
 
     // Called when another command which requires one or more of the same
@@ -39,10 +40,3 @@ public class ClimbUp extends Command {
     	end();
     }
 }
-/*
-public void climbUp(){
-climber1.set(1);
-climber2.set(-1);
-
-}
-*/

@@ -18,28 +18,20 @@ public class Climber extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
     public Climber(){
-    climber1 = new TalonSRX(RobotMap.climberPort1);
-    climber2 = new TalonSRX(RobotMap.climberPort2);
+    	climber1 = new TalonSRX(RobotMap.climberPort1);
+    	climber2 = new TalonSRX(RobotMap.climberPort2);
     
     }
-    
-    public void climbUp(){
-    climber1.set(1);
-    climber2.set(-1);
-    
-    }
-    
-    public void climbDown(){
-    climber1.set(-1);
-    climber2.set(1);
+
+    public static void climbMotorSet(double speed){
+    	climber1.set(-speed);
+    	climber2.set(speed);
     }
     
     
-    
-    SpeedController climber1;
-    SpeedController climber2;
+    public static SpeedController climber1;
+    public static SpeedController climber2;
     
 }
 

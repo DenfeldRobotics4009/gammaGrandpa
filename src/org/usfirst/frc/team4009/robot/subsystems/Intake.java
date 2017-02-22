@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Shoot extends Subsystem {
+public class Intake extends Subsystem {
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -18,17 +18,12 @@ public class Shoot extends Subsystem {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 	}
-
-	public Shoot() {
-		shooter = new TalonSRX(RobotMap.shooterPort);
-		jostleMotor = new TalonSRX(RobotMap.jostleMotorPort);
+	public Intake(){
+		intakeMotor = new TalonSRX(RobotMap.intakePort);
+	}
+	public static void intakeMotorSet(double speed){
+		intakeMotor.set(speed);
 	}
 
-	public static void shootMotorSet(double speed) {
-		shooter.set(speed);
-
-	}
-
-	static SpeedController shooter;
-	static SpeedController jostleMotor;
+	public static SpeedController intakeMotor;
 }
